@@ -1,0 +1,13 @@
+{
+  "Name":               "More Sprinklers",
+  "Author":             "Oexi",
+  "Version":            "1.0",
+  "MinimumApiVersion":  "3.18.6",
+  "Description":        "Sprinkler crafting recipes produce multiple sprinklers instead of one.",
+  "UniqueID":           "Oexi.MoreSprinklers",
+  "ContentPackFor": {
+    "UniqueID":         "Pathoschild.ContentPatcher",
+    "MinimumVersion":   "1.30.4"
+  }
+}
+

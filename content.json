@@ -1,0 +1,14 @@
+{
+    "Format": "1.29.0",
+    "Changes": [
+        { 
+            "Action":               "EditData",
+            "Target":               "Data/CraftingRecipes",
+            "Entries": {
+                "Sprinkler":            "334 1 335 1/Home/599 2/false/Farming 2",
+                "Quality Sprinkler":    "335 1 336 1 338 1/Home/621 2/false/Farming 6",
+                "Iridium Sprinkler":    "336 1 337 1 787 1/Home/645 2/false/Farming 9"
+            }
+        }
+    ]
+}
