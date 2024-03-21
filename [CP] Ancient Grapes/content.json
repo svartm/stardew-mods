@@ -1,0 +1,173 @@
+{
+  "Format": "2.0.0",
+  "ConfigSchema": {
+    "Buy From": {
+      "AllowValues": "Pierre, Krobus",
+      "AllowMultiple": true,
+      "AllowBlank": true,
+      "Default": "Krobus"
+    },
+    "Starter Buy Price": {
+      "Default": "500"
+    },
+    "Unlimited Stock": {
+      "AllowValues": "true, false",
+      "Default": false
+    },
+    "Days to Grow": {
+      "AllowValues": "10, 14, 28, 42, 56, 84, 112",
+      "Default": "14"
+    },
+    "Days to Regrow": {
+      "AllowValues": "1, 2, 3, 7, 14, 28, 56, 112",
+      "Default": "7"
+    },
+    "Base Sell Price": {
+      "AllowValues": "160, 550, 750, 1000, 1500",
+      "Default": "750"
+    },
+    "Needs Watering": {
+      "AllowValues": "true, false",
+      "Default": true
+    },
+    "Grows in Winter": {
+      "AllowValues": "true, false",
+      "Default": "false"
+    }
+  },
+  "Changes": [
+    {
+	"Action": "EditData",
+	    "Target": "Data/Objects",
+	    "Entries": {
+	      "Oexi.AncientGrapes_AncientGrape": {
+	        "Name": "Ancient Grape",
+	        "DisplayName": "Ancient Grape",
+	        "Description": "A cluster of ancient grapes.",
+	        "Type": "Basic",
+	        "Category": -79,
+	        "Edibility": -300,
+	        "Price": "{{Base Sell Price}}",
+	        "Texture": "Mods/Oexi.AncientGrapes/Objects",
+	        "SpriteIndex": 0
+				},
+	      "Oexi.AncientGrapes_AncientGrapeStarter": {
+	        "Name": "Ancient Grape Starter",
+	        "DisplayName": "Ancient Grape Starter",
+	        "Description": "Takes {{Days to Grow}} days to grow, but keeps producing after that. Grows on a trellis.",
+	        "Type": "Seeds",
+	        "Category": -74,
+	        "Price": 30,
+	        "Texture": "Mods/Oexi.AncientGrapes/Seeds",
+	        "SpriteIndex": 0
+				}
+		  }
+    },
+    {
+      "Action": "EditData",
+      "Target": "Data/Crops",
+      "Entries": {
+        "Oexi.AncientGrapes_AncientGrapeStarter": {
+          "Seasons": [ "spring", "summer", "fall" ],
+          "RegrowDays": "{{Days to Regrow}}",
+          "DaysInPhase": [ 1, 1, "{{Query: {{Days to Grow}}-8}}", 3, 3 ],
+          "IsRaised": true,
+          "NeedsWatering": "{{Needs Watering}}",
+          "HarvestItemId": "Oexi.AncientGrapes_AncientGrape",
+          "Texture": "Mods/Oexi.AncientGrapes/Crops",
+          "SpriteIndex": 0
+        }
+      }
+    },
+    {
+      "Action": "EditData",
+      "Target": "Data/Crops",
+      "TargetField": [ "Oexi.AncientGrapes_AncientGrapeStarter" ],
+      "Entries": {
+        "Seasons": [ "spring", "summer", "fall", "winter" ]
+      },
+      "When": {
+	"Grows in Winter": "true"
+      }
+    },
+    {
+      "Action": "EditData",
+      "Target": "Data/Shops",
+      "TargetField": [ "ShadowShop", "Items" ],
+      "Entries": {
+	"Oexi.AncientGrapes_ShopListing": {
+	  "Id": "Oexi.AncientGrapes_ShopListing",
+	  "ItemId": "Oexi.AncientGrapes_AncientGrapeStarter",
+	  "Price": "{{Starter Buy Price}}"
+	}
+      },
+      "MoveEntries": [
+	{ "Id": "Oexi.AncientGrapes_ShopListing", "BeforeId": "(O)769" }
+      ],
+      "When": {
+	"Buy From": "Krobus",
+	"Unlimited Stock": true
+      }
+    },
+    {
+      "Action": "EditData",
+      "Target": "Data/Shops",
+      "TargetField": [ "SeedShop", "Items" ],
+      "Entries": {
+	"Oexi.AncientGrapes_ShopListing": {
+	  "Id": "Oexi.AncientGrapes_ShopListing",
+	  "ItemId": "Oexi.AncientGrapes_AncientGrapeStarter",
+	  "Price": "{{Starter Buy Price}}"
+	}
+      },
+      "When": {
+	"Buy From": "Pierre",
+	"Unlimited Stock": true
+      }
+    },
+    {
+      "Action": "EditData",
+      "Target": "Data/Shops",
+      "TargetField": [ "ShadowShop", "Items" ],
+      "Entries": {
+	"Oexi.AncientGrapes_ShopListing": {
+	  "Id": "Oexi.AncientGrapes_ShopListing",
+	  "ItemId": "Oexi.AncientGrapes_AncientGrapeStarter",
+	  "Price": "{{Starter Buy Price}}",
+	  "AvailableStock": 3,
+	  "AvailableStockLimit": "Player"
+	}
+      },
+      "MoveEntries": [
+	{ "Id": "Oexi.AncientGrapes_ShopListing", "BeforeId": "(O)769" }
+      ],
+      "When": {
+	"Buy From": "Krobus",
+	"Unlimited Stock": false
+      }
+    },
+    {
+      "Action": "EditData",
+      "Target": "Data/Shops",
+      "TargetField": [ "SeedShop", "Items" ],
+      "Entries": {
+	"Oexi.AncientGrapes_ShopListing": {
+	  "Id": "Oexi.AncientGrapes_ShopListing",
+	  "ItemId": "Oexi.AncientGrapes_AncientGrapeStarter",
+	  "Price": "{{Starter Buy Price}}",
+	  "AvailableStock": 3,
+	  "AvailableStockLimit": "Player"
+	}
+      },
+      "When": {
+	"Buy From": "Pierre",
+	"Unlimited Stock": false
+      }
+    },
+    {
+      "Action": "Load",
+      "Target": "Mods/Oexi.AncientGrapes/Objects, Mods/Oexi.AncientGrapes/Seeds, Mods/Oexi.AncientGrapes/Crops",
+      "FromFile": "assets/{{TargetWithoutPath}}.png"
+    }
+  ]
+}

@@ -1,0 +1,12 @@
+{
+    "Name": "Configurable Grapes",
+    "Author": "Oexi",
+    "Version": "0.1.0",
+    "Description": "Adds configuration options for grapes to the game.",
+    "UniqueID": "Oexi.CP.ConfigurableGrapes",
+    "MinimumApiVersion": "4.0.0",
+    "UpdateKeys": [ ""],
+    "ContentPackFor": {
+        "UniqueID": "Pathoschild.ContentPatcher"
+    }
+}

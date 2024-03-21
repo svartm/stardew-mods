@@ -1,0 +1,10 @@
+﻿{
+  "Fruits": [ "Ancient Grape" ],
+  "Vegetables": null,
+  "Flowers": null,
+  "Honey": null,
+  "Jelly": "assets/jelly.png",
+  "Juice": null,
+  "Pickles": null,
+  "Wine": "assets/wine.png"
+}

@@ -1,0 +1,12 @@
+{
+    "Name": "Ancient Grapes",
+    "Author": "Oexi",
+    "Version": "2.0.0",
+    "Description": "Adds ancient grapes to the game.",
+    "UniqueID": "Oexi.CP.AncientGrapes",
+    "MinimumApiVersion": "4.0.0",
+    "UpdateKeys": [ "Nexus:19791"],
+    "ContentPackFor": {
+        "UniqueID": "Pathoschild.ContentPatcher"
+    }
+}

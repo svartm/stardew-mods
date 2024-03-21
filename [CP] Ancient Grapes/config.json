@@ -1,0 +1,10 @@
+{
+  "Buy From": "Krobus",
+  "Starter Buy Price": "500",
+  "Unlimited Stock": "true",
+  "Days to Grow": "14",
+  "Days to Regrow": "7",
+  "Base Sell Price": "750",
+  "Needs Watering": "false",
+  "Grows in Winter": "true"
+}

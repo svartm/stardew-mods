@@ -1,0 +1,98 @@
+{
+  "Format": "2.0.0",
+  "ConfigSchema": {
+    "Grape Starter Buy Price": {
+      "Default": "60"
+    },
+    "Days to Grow": {
+      "AllowValues": "10, 14, 26, 28, 42, 56, 84, 112",
+      "Default": "10"
+    },
+    "Days to Regrow": {
+      "AllowValues": "1, 2, 3, 7, 14, 28, 56, 112",
+      "Default": "3"
+    },
+    "Base Sell Price": {
+      "Default": "80"
+    },
+    "Needs Watering": {
+      "AllowValues": "true, false",
+      "Default": true
+    },
+    "Grows in": {
+      "AllowValues": "Fall Only, Non-Winter, All Seasons",
+      "Default": "Fall Only"
+    }  
+  },
+  "Changes": [
+    {
+	"Action": "EditData",
+	    "Target": "Data/Objects",
+	    "Fields": {
+	      "398": {
+	        "Price": "{{Base Sell Price}}"
+	      },
+	      "301": {
+	        "Description": "Takes {{Days to Grow}} days to grow, but keeps producing after that. Grows on a trellis."
+	      }
+	    }
+    },
+    {
+      "Action": "EditData",
+      "Target": "Data/Crops",
+      "Fields": {
+        "301": {
+          "RegrowDays": "{{Days to Regrow}}",
+          "DaysInPhase": [ 1, 1, "{{Query: {{Days to Grow}}-8}}", 3, 3 ],
+          "NeedsWatering": "{{Needs Watering}}"
+        }
+      },
+      "When": {
+	"Grows in": "Fall Only"
+      }
+    },
+    {
+      "Action": "EditData",
+      "Target": "Data/Crops",
+      "Fields": {
+        "301": {
+          "Seasons": [ "spring", "summer", "fall" ],
+          "RegrowDays": "{{Days to Regrow}}",
+          "DaysInPhase": [ 1, 1, "{{Query: {{Days to Grow}}-8}}", 3, 3 ],
+          "NeedsWatering": "{{Needs Watering}}"
+        }
+      },
+      "When": {
+	"Grows in": "Non-Winter"
+      }
+    },
+    {
+      "Action": "EditData",
+      "Target": "Data/Crops",
+      "Fields": {
+        "301": {
+          "Seasons": [ "spring", "summer", "fall", "winter" ],
+          "RegrowDays": "{{Days to Regrow}}",
+          "DaysInPhase": [ 1, 1, "{{Query: {{Days to Grow}}-8}}", 3, 3 ],
+          "NeedsWatering": "{{Needs Watering}}"
+        }
+      },
+      "When": {
+	"Grows in": "All Seasons"
+      }
+
+    },
+    {
+      "Action": "EditData",
+      "Target": "Data/Shops",
+      "TargetField": [ "SeedShop", "Items" ],
+      "Entries": {
+	"(O)301": {
+	  "Id": "Oexi.ConfigurableGrapes_ShopListing",
+	  "ItemId": "(O)301",
+	  "Price": "{{Grape Starter Buy Price}}"
+	}
+      }
+    }
+  ]
+}
