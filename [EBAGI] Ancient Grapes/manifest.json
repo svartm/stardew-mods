@@ -1,0 +1,13 @@
+{
+    "Name": "[EBAGI] Ancient Grapes",
+    "Author": "Oexi",
+    "Version": "1.1.0",
+    "Description": "Adds unique icons for ancient grape wine and jelly.",
+    "UniqueID": "Oexi.EBAGI.AncientGrapes",
+    "MinimumApiVersion": "4.0.0",
+    "UpdateKeys": [ "Nexus:19791@EBAGI" ],
+    "Dependencies": [ {"UniqueID": "Oexi.CP.AncientGrapes"} ],
+    "ContentPackFor": {
+        "UniqueID": "haze1nuts.evenbetterartisangoodicons",
+    }
+}
