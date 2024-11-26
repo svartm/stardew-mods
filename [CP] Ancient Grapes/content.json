@@ -1,5 +1,5 @@
 {
-  "Format": "2.0.0",
+  "Format": "2.4.0",
   "ConfigSchema": {
     "Buy From": {
       "AllowValues": "Pierre, Krobus",
@@ -49,8 +49,10 @@
 	        "Edibility": -300,
 	        "Price": "{{Base Sell Price}}",
 	        "Texture": "Mods/Oexi.AncientGrapes/Objects",
-	        "SpriteIndex": 0
-				},
+	        "SpriteIndex": 0,
+		"ContextTags": ["color_cyan"]
+	      },
+
 	      "Oexi.AncientGrapes_AncientGrapeStarter": {
 	        "Name": "Ancient Grape Starter",
 	        "DisplayName": "Ancient Grape Starter",
